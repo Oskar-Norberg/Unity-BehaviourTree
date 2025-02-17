@@ -1,17 +1,20 @@
-public abstract class Node
+namespace BehaviourTree
 {
-    protected BlackBoard BlackBoard;
-    
-    public enum ReturnValue
+    public abstract class Node
     {
-        Success,
-        Failure
-    }
+        protected BlackBoard.BlackBoard BlackBoard;
+        
+        public enum ReturnValue
+        {
+            Success,
+            Failure
+        }
 
-    public abstract ReturnValue Evaluate();
+        public abstract ReturnValue Evaluate();
 
-    public virtual void PopulateBlackBoard(BlackBoard blackBoard)
-    {
-        BlackBoard = blackBoard;
+        public virtual void PopulateBlackBoard(BlackBoard.BlackBoard blackBoard)
+        {
+            BlackBoard = blackBoard;
+        }
     }
 }

@@ -1,25 +1,27 @@
 using System.Collections.Generic;
 
-public class Selector : Composite
+namespace BehaviourTree
 {
-    public Selector(List<Node> children) : base(children)
+    public class Selector : Composite
     {
-    }
-    
-    public override ReturnValue Evaluate()
-    {
-        foreach (Node child in Children)
+        public Selector(List<Node> children) : base(children)
         {
-            switch (child.Evaluate())
-            {
-                case ReturnValue.Success:
-                    return ReturnValue.Success;
-                case ReturnValue.Failure:
-                    continue;
-            }
         }
+        
+        public override ReturnValue Evaluate()
+        {
+            foreach (Node child in Children)
+            {
+                switch (child.Evaluate())
+                {
+                    case ReturnValue.Success:
+                        return ReturnValue.Success;
+                    case ReturnValue.Failure:
+                        continue;
+                }
+            }
 
-        return ReturnValue.Failure;
+            return ReturnValue.Failure;
+        }
     }
 }
-

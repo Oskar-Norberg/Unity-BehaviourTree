@@ -1,5 +1,7 @@
-public abstract class Leaf : Node
+namespace BehaviourTree
 {
-    public abstract override ReturnValue Evaluate();
+    public abstract class Leaf : Node
+    {
+        public abstract override ReturnValue Evaluate();
+    }
 }
-

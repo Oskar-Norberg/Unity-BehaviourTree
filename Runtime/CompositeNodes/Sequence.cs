@@ -1,24 +1,27 @@
 using System.Collections.Generic;
 
-public class Sequence : Composite
+namespace BehaviourTree
 {
-    public Sequence(List<Node> children) : base(children)
+    public class Sequence : Composite
     {
-    }
-
-    public override ReturnValue Evaluate()
-    {
-        foreach (Node child in Children)
+        public Sequence(List<Node> children) : base(children)
         {
-            switch (child.Evaluate())
-            {
-                case ReturnValue.Success:
-                    continue;
-                case ReturnValue.Failure:
-                    return ReturnValue.Failure;
-            }
         }
 
-        return ReturnValue.Success;
+        public override ReturnValue Evaluate()
+        {
+            foreach (Node child in Children)
+            {
+                switch (child.Evaluate())
+                {
+                    case ReturnValue.Success:
+                        continue;
+                    case ReturnValue.Failure:
+                        return ReturnValue.Failure;
+                }
+            }
+
+            return ReturnValue.Success;
+        }
     }
 }

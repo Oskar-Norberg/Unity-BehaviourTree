@@ -1,20 +1,21 @@
-
-public abstract class Decorator : Node
+namespace BehaviourTree
 {
-    protected Node Child;
-
-    protected Decorator(Node child)
+    public abstract class Decorator : Node
     {
-        Child = child;
-    }
+        protected Node Child;
 
-    public abstract override ReturnValue Evaluate();
+        protected Decorator(Node child)
+        {
+            Child = child;
+        }
+
+        public abstract override ReturnValue Evaluate();
     
-    public override void PopulateBlackBoard(BlackBoard blackBoard)
-    {
-        base.PopulateBlackBoard(blackBoard);
+        public override void PopulateBlackBoard(BlackBoard.BlackBoard blackBoard)
+        {
+            base.PopulateBlackBoard(blackBoard);
         
-        Child.PopulateBlackBoard(blackBoard);
+            Child.PopulateBlackBoard(blackBoard);
+        }
     }
 }
-

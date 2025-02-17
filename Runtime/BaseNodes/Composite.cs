@@ -1,23 +1,26 @@
 using System.Collections.Generic;
 
-public abstract class Composite : Node
+namespace BehaviourTree
 {
-    protected List<Node> Children;
-
-    protected Composite(List<Node> children)
+    public abstract class Composite : Node
     {
-        Children = children;
-    }
+        protected List<Node> Children;
 
-    public abstract override ReturnValue Evaluate();
-    
-    public override void PopulateBlackBoard(BlackBoard blackBoard)
-    {
-        base.PopulateBlackBoard(blackBoard);
-        
-        foreach (Node child in Children)
+        protected Composite(List<Node> children)
         {
-            child.PopulateBlackBoard(BlackBoard);
+            Children = children;
+        }
+
+        public abstract override ReturnValue Evaluate();
+    
+        public override void PopulateBlackBoard(BlackBoard.BlackBoard blackBoard)
+        {
+            base.PopulateBlackBoard(blackBoard);
+        
+            foreach (Node child in Children)
+            {
+                child.PopulateBlackBoard(BlackBoard);
+            }
         }
     }
 }
