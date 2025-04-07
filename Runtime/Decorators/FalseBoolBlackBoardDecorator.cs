@@ -2,11 +2,11 @@ using UnityEngine;
 
 namespace Ringo.AI
 {
-    public class BoolBlackBoardDecorator : Decorator
+    public class FalseBoolBlackBoardDecorator : Decorator
     {
         private string _key;
         
-        public BoolBlackBoardDecorator(string key, Node child) : base(child)
+        public FalseBoolBlackBoardDecorator(string key, Node child) : base(child)
         {
             _key = key;
         }
@@ -23,7 +23,7 @@ namespace Ringo.AI
             
             bool boolValue = (bool) value;
 
-            return boolValue ? Child.Evaluate() : ReturnValue.Failure;
+            return boolValue ? ReturnValue.Failure : Child.Evaluate();
         }
     }
 }
