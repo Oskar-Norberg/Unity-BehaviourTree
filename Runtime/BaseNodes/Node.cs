@@ -1,4 +1,4 @@
-namespace BehaviourTree
+namespace Ringo.AI
 {
     public abstract class Node
     {

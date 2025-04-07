@@ -1,4 +1,4 @@
-namespace BehaviourTree
+namespace Ringo.AI
 {
     public class BehaviourTree
     {

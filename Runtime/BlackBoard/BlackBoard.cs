@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace BehaviourTree.BlackBoard
+namespace Ringo.AI.BlackBoard
 {
     public class BlackBoard
     {
