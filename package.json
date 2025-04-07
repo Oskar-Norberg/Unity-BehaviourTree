@@ -1,6 +1,6 @@
 {
   "name": "com.ringo.behaviour-tree",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "displayName": "Behaviour Tree",
   "description": "Package for setting up a basic Behaviour Tree.",
   
